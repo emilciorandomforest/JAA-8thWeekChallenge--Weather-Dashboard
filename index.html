@@ -12,72 +12,86 @@
 </head>
 
 <body>
-  <header class="container-fluid text-center text-white bg-primary p-2 weather-header" style = "position: fixed;">
+  <header id="top" class="container-fluid text-center text-white bg-primary p-2 weather-header" style = "position: fixed; height: 80px;">
     <h1>Weather Dashboard</h1>
   </header>
 
-  <!-- max-width for ultra wide resolutions -->
-  <div>
-    <div class="container col-lg-3 pb-3 d-flex min-vh-100 flex-column flex-grow-1 align-items-stretch" style = "position: fixed; max-width: 400px">
-        <h2 id="form-heading" class="mt-1 h3 form-label">
-          Search for a City:
-        </h2>
-        <form id="search-form" class="form">
-          <div class="form-inline form-group">
-            <div class="input-group">
-              <!--class="form-input weather-search"-->
-              <input type="text" id="search-input" placeholder="London"
-                aria-labelledby="form-heading" aria-controls="today forecast" />
-              <div class="input-group-append">
-                <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
-                  Search
-                </button>
-                <hr class="hr weather-hr" />
+  <br />
+  <br />
+  <br />
+  <br />
+
+    <div class = d-flex style = "position: fixed; flex: 1 0 30%;">
+    <!-- max-width for ultra wide resolutions -->
+      <div>
+        <div class="container">
+          <h2 id="form-heading" class="mt-1 h3 form-label">
+            Search for a City:
+          </h2>
+          <form id="search-form" class="form">
+            <div class="form-inline form-group">
+              <div class="input-group">
+                <!--class="form-input weather-search"-->
+                <input type="text" id="search-input" placeholder="London"
+                  aria-labelledby="form-heading" aria-controls="today forecast" />
+                <div class="input-group-append">
+                  <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
+                    Search
+                  </button>
+                    <hr class="hr weather-hr" />
+                </div>
               </div>
             </div>
-          </div>
-        </form>
-        <div class="list-group" id="history"></div>
+          </form>
+          <div class="list-group" id="history"></div>
+        </div>
       </div>
+  
     </div>
 
-    
+    <br />
+    <br />
+    <br />
     <br />
 
-    <div class="jumbotron bg-primary d-flex min-vh-40" style = "max-width: 400px; color: white;" >
-        <div class="container">
-          <h1>
-            <p class="cityName" placeholder="CityName"></p>
-          </h1>
-          <img class = iconURL >
-          <p class="leadTemp"></p>
-          <p class="leadHumidity"></p>
-          <p class="leadAtmosphere"></p>
+    <div>
+      
+      <div class = "d-flex">
+        <div class="jumbotron bg-primary" style = "color: white;" >
+          <div class="container">
+            <h1>
+              <p class="cityName" placeholder="CityName"></p>
+            </h1>
+            <img class = iconURL >
+            <p class="leadTemp"></p>
+            <p class="leadHumidity"></p>
+            <p class="leadAtmosphere"></p>
+          </div>
         </div>
-    </div>
-
-    <div class="card bg-primary" style="width: 18rem; color: white;">
-      <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
-        <ul class="list-group list-group-flush">
-          <p class="leadTemp">
-          <p class="leadHumidity"></p>
-          <p class="leadAtmosphere"></p>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-    </div>
 
+      <br />
 
-      <div class="col-lg-9 pb-3"><p>footer</p>
+      <div class="card bg-primary" style="width: 18rem; color: white;">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+          <ul class="list-group list-group-flush">
+            <p class="leadTemp">
+            <p class="leadHumidity"></p>
+            <p class="leadAtmosphere"></p>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+      </div>
+
+      <div style = "position: fixed;"><p>footer</p>
         <section id="today" class="mt-3" role="region" aria-live="polite"></section>
         <section id="forecast" class="row mt-3" role="region" aria-live="polite"></section>
       </div>
+
     </div>
-  </div>
-  
 
   <!-- Day.js -->
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
