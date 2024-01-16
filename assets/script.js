@@ -27,7 +27,7 @@ $("#search-button").on("click", function(event) {
         var lat = data.coord.lat;
         var lon = data.coord.lon;
     
-        const newQueryURL = "https://api.openweathermap.org/data/2.5/weather?&metric&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey; 
+        const newQueryURL = "https://api.openweathermap.org/data/2.5/weather?&units=metric&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey; 
 
         fetch(newQueryURL)
         .then(function (response) {
@@ -35,15 +35,34 @@ $("#search-button").on("click", function(event) {
         })
         .then(function (data) {
             console.log(data)
+            
+            const todaysWeatherIcon = $("<img>");
+            var icon = data.weather[0].icon;
+            console.log(icon);
+            const leadIcon = $(".leadTemp").attr(src = "https://openweathermap.org/img/wn/" + icon + "@2x.png");
+
+            todaysWeatherIcon.prepend(".display-4");
 
             var cityTemp = data.main.temp;
             var humidity = data.main.humidity;
             var atmosPressure = data.main.pressure;
 
             const leadTemp = $(".leadTemp").text("Temperature: " + cityTemp);
-            const leadHumidity = $(".leadHumidity").text("Humidity: " + humidity + "%");
-            const leadAtmosphere = $(".leadAtmosphere").text("Atmospheric Pressure: " + atmosPressure + "kPa");
+            const leadHumidity = $(".leadHumidity").text("Humidity: " + humidity + " %");
+            const leadAtmosphere = $(".leadAtmosphere").text("Atmospheric Pressure: " + atmosPressure + " kPa");
+
+        
+//            const forecastURL = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=5&appid=" + APIKey;
+            
+//            fetch(forecastURL)
+//            .then(function (response) {
+//                return response.json();
+//            })
+//            .then(function (data) {
+//                console.log(data)
+//            })
         })
+
     })
     
 
@@ -55,4 +74,3 @@ $("#search-button").on("click", function(event) {
 //    $(".cityTemp').attr("src", ")
 
 })
-
