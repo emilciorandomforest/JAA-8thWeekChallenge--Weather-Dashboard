@@ -4,8 +4,7 @@ const APIKey = "4c4e37224ec7f2e9b92313f00b179fce";
 
 // The variable declared below simplifies the user's input.
 const input = document.getElementById('search-input').value;
-
-
+console.log(input)
 
 //const queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
 
@@ -23,21 +22,25 @@ $("#search-button").on("click", function(event) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data)
+        console.log(data);
+
+        var lat = data.coord.lat;
+        var lon = data.coord.lon;
+    
+        const newQueryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey; 
+
+        fetch(newQueryURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+        })
     })
+    
 
-    const lat = $(this).data.coord.lat;
-    const lon = $(this).data.coord.lon;
-
-//    const newQueryURL = "https//.[LAT][LON][API]";
-
-//    fetch(newQueryURL)
-//    .then(function (response) {
-//        return response.json();
-//    })
-//    .then(function (data) {
-//        console.log(data)
-//    })
+    
+    
 
 // The code below assigns temperature of the city 
 // selected to each of 5 cards
