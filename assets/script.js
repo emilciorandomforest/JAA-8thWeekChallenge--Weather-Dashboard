@@ -27,7 +27,7 @@ $("#search-button").on("click", function(event) {
         var lat = data.coord.lat;
         var lon = data.coord.lon;
     
-        const newQueryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey; 
+        const newQueryURL = "https://api.openweathermap.org/data/2.5/weather?&metric&lat=" + lat + "&lon=" + lon + "&appid=" + APIKey; 
 
         fetch(newQueryURL)
         .then(function (response) {
@@ -35,6 +35,14 @@ $("#search-button").on("click", function(event) {
         })
         .then(function (data) {
             console.log(data)
+
+            var cityTemp = data.main.temp;
+            var humidity = data.main.humidity;
+            var atmosPressure = data.main.pressure;
+
+            const leadTemp = $(".leadTemp").text("Temperature: " + cityTemp);
+            const leadHumidity = $(".leadHumidity").text("Humidity: " + humidity + "%");
+            const leadAtmosphere = $(".leadAtmosphere").text("Atmospheric Pressure: " + atmosPressure + "kPa");
         })
     })
     
