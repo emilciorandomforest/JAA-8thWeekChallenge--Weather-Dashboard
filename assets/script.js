@@ -19,11 +19,22 @@ $("#search-button").on("click", function(event) {
         console.log(data)
     })
 
-    const lat = ${.this}.data.coord.lat;
-    const lon = ${.this}.data.coord.lon;
+    const lat = $(this).data.coord.lat;
+    const lon = $(this).data.coord.lon;
 
-    const newQueryURL = "";
+    const newQueryURL = "https//.[LAT][LON][API]";
 
+    fetch(newQueryURL)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data)
+    })
+
+// The code below assigns temperature of the city 
+// selected to each of 5 cards
+    $(".cityTemp').attr("src", ")
 
 })
 
