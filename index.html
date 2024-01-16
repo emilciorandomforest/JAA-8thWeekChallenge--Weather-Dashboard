@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <header class="container-fluid text-center text-white bg-dark p-2 weather-header">
+  <header class="container-fluid text-center text-white bg-primary p-2 weather-header">
     <h1>Weather Dashboard</h1>
   </header>
 
@@ -26,7 +26,8 @@
         <form id="search-form" class="form">
           <div class="form-inline form-group">
             <div class="input-group">
-              <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
+              <!--class="form-input weather-search"-->
+              <input type="text" id="search-input" placeholder="London"
                 aria-labelledby="form-heading" aria-controls="today forecast" />
               <div class="input-group-append">
                 <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
@@ -40,24 +41,29 @@
         <div class="list-group" id="history"></div>
       </aside>
 
-    <div class="jumbotron jumbotron-fluid" style = "max-width: 1000px" >
+    <div class="jumbotron jumbotron-fluid bg-primary" style = "max-width: 1000px; color: white;" >
         <div class="container">
-          <h1 class="display-4">London</h1>
-          <div class = mainIcon>
-          </div>
+          <h1>
+            <p class="cityName" placeholder="CityName"></p>
+          </h1>
+          <img class = iconURL >
           <p class="leadTemp"></p>
           <p class="leadHumidity"></p>
           <p class="leadAtmosphere"></p>
         </div>
     </div>
 
-    <div class="card bg-dark" style="width: 18rem;">
+    <div></div>
+
+    <div class="card bg-primary" style="width: 18rem; color: white;">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
         <ul class="list-group list-group-flush">
-          <p class="cityTemp">
+          <p class="leadTemp">
+          <p class="leadHumidity"></p>
+          <p class="leadAtmosphere"></p>
           <li class="list-group-item">Dapibus ac facilisis in</li>
           <li class="list-group-item">Vestibulum at eros</li>
         </ul>

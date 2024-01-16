@@ -3,8 +3,7 @@
 const APIKey = "4c4e37224ec7f2e9b92313f00b179fce";
 
 // The variable declared below simplifies the user's input.
-const input = document.getElementById('search-input').value;
-console.log(input)
+
 
 //const queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
 
@@ -14,8 +13,11 @@ console.log(input)
 
 $("#search-button").on("click", function(event) {
     event.preventDefault();
+    
+    const input = document.getElementById('search-input').value;
+    console.log(input)
 
-    const locationURL = "https://api.openweathermap.org/data/2.5/weather?q=" + "London" + "&appid=" + APIKey;
+    const locationURL = "https://api.openweathermap.org/data/2.5/weather?q=" + input + "&appid=" + APIKey;
     
     fetch(locationURL)
     .then(function (response) {
@@ -36,12 +38,18 @@ $("#search-button").on("click", function(event) {
         .then(function (data) {
             console.log(data)
             
-            const todaysWeatherIcon = $("<img>");
-            var icon = data.weather[0].icon;
-            console.log(icon);
-            const leadIcon = $(".leadTemp").attr(src = "https://openweathermap.org/img/wn/" + icon + "@2x.png");
+            var city = data.name;
+            const cityName = $(".cityName").text(city);
 
-            todaysWeatherIcon.prepend(".display-4");
+            var iconTag = data.weather[0].icon;
+            console.log(iconTag);
+            var iconURL = "https://openweathermap.org/img/wn/" + iconTag + "@2x.png";
+
+            const todaysWeatherIcon = $("<img>");
+            const leadIcon = $(".iconURL").attr('src', iconURL);
+            console.log(leadIcon);
+
+            todaysWeatherIcon.prepend(".todaysWeatherIcon");
 
             var cityTemp = data.main.temp;
             var humidity = data.main.humidity;
