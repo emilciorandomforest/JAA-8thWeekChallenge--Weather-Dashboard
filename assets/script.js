@@ -82,37 +82,37 @@ $("#search-button").on("click", function(event) {
 
                     console.log(input);
 
-                    $("search-button").on('click', function(event) {
+//                    $("search-button").on('click', function(event) {
 
-                        event.preventDefault;
+//                      event.preventDefault;
                         
-                        function renderButtons() {
-                        $('#buttons-view').empty;
+//                        function renderButtons() {
+//                        $('#buttons-view').empty;
 
-                        $.each(input, function(i, city) {
+//                        $.each(input, function(i, city) {
 
-                            const cityHist = $('<button>').text(input);
-                            $("#buttons-view").append(cityHist)[i];
-                        })
+//                            const cityHist = $('<button>').text(input);
+//                            $("#buttons-view").append(cityHist)[i];
+//                        })
 
-                        }
+//                        }
                                 
-                    })
+//                    })
 
-                    renderButtons(input);
-                    console.log(input);
+//                    renderButtons(input);
+//                    console.log(input);
 
                     })
                     
 
-})
+                })
 
 
             
 
         })
 
-    })
+})
     
 
     
@@ -121,6 +121,4 @@ $("#search-button").on("click", function(event) {
 // The code below assigns temperature of the city 
 // selected to each of 5 cards
 //    $(".cityTemp').attr("src", ")
-
-})
 
