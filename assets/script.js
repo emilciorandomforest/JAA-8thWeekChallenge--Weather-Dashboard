@@ -82,21 +82,27 @@ $("#search-button").on("click", function(event) {
 
                     console.log(input);
 
+                    $("search-button").on('click', function(event) {
 
-                    function renderButtons() {
-                    console.log(input);
+                        event.preventDefault;
+                        
+                        function renderButtons() {
                         $('#buttons-view').empty;
 
                         $.each(input, function(i, city) {
 
                             const cityHist = $('<button>').text(input);
-                            $("#buttons-view").append(cityHist);
+                            $("#buttons-view").append(cityHist)[i];
                         })
 
-                    renderButtons();
+                        }
+                                
+                    })
+
+                    renderButtons(input);
                     console.log(input);
 
-                    }
+                    })
                     
 
 })
