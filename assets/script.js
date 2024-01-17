@@ -58,17 +58,52 @@ $("#search-button").on("click", function(event) {
             const leadTemp = $(".leadTemp").text("Temperature: " + cityTemp);
             const leadHumidity = $(".leadHumidity").text("Humidity: " + humidity + " %");
             const leadAtmosphere = $(".leadAtmosphere").text("Atmospheric Pressure: " + atmosPressure + " kPa");
-
         
-//            const forecastURL = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lon + "&cnt=5&appid=" + APIKey;
+                const forecastURL = "https://api.openweathermap.org/data/2.5/forecast?&units=metric&lat=" + lat + "&lon=" + lon + "&cnt=40&appid=" + APIKey;
             
-//            fetch(forecastURL)
-//            .then(function (response) {
-//                return response.json();
-//            })
-//            .then(function (data) {
-//                console.log(data)
-//            })
+                fetch(forecastURL)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data)
+
+                    var cardTemp1 = data.list[7].main.temp;
+                    var cardTemp2 = data.list[15].main.temp;
+                    var cardTemp3 = data.list[23].main.temp;
+                    var cardTemp4 = data.list[31].main.temp;
+                    var cardTemp5 = data.list[39].main.temp;
+                    
+                    const firstDayTemp = $(".firstDayTemp").text("Temperature: " + cardTemp1);
+                    const secondDayTemp = $(".secondDayTemp").text("Temperature: " + cardTemp2);
+                    const thirdDayTemp = $(".cardTemp3").text("Temperature: " + cardTemp3);
+                    const fourthDayTemp = $(".cardTemp4").text("Temperature: " + cardTemp4);
+                    const fifthDayTemp = $(".cardTemp5").text("Temperature: " + cardTemp5);
+
+                    console.log(input);
+
+
+                    function renderButtons() {
+                    console.log(input);
+                        $('#buttons-view').empty;
+
+                        $.each(input, function(i, city) {
+
+                            const cityHist = $('<button>').text(input);
+                            $("#buttons-view").append(cityHist);
+                        })
+
+                    renderButtons();
+                    console.log(input);
+
+                    }
+                    
+
+})
+
+
+            
+
         })
 
     })
@@ -82,3 +117,4 @@ $("#search-button").on("click", function(event) {
 //    $(".cityTemp').attr("src", ")
 
 })
+
